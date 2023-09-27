@@ -1,0 +1,53 @@
+body { background: #ff306d; }
+
+.circle{
+   width:18rem;height:18rem;
+   background:#ffc100;
+   border-radius:50%;
+   margin:2.5em auto;
+   position:relative;
+   transform:translateX(-121%);
+   animation:move 4s linear infinite;
+   z-index:10;
+}
+@keyframes move{
+   to{
+      transform:translateX(121%);
+   }
+}
+
+.circle::after{
+   content:"";
+   position:absolute;
+   background:transparent;
+   width:1rem;
+   height:2rem;
+   right:-.1rem;
+   top:35%;
+   border-bottom:20px dotted black;
+   animation:side .4s linear infinite;
+}
+@keyframes side{
+   to{
+      transform:translateX(-100%);
+      border:none;
+   }
+}
+
+.circle::before{
+   content:"";
+   background:#ff306d;
+   position:absolute;
+   width:10rem;height:10rem;
+   right:-3rem;
+   transform:rotate(-45deg);
+   top:4rem;
+   animation:size .2s linear infinite alternate;
+}
+@keyframes size{
+   to{
+      width:5rem;
+      right:-7rem;
+      top:5.5rem;
+   }
+}
